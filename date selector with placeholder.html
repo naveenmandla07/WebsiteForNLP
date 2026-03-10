@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Date Selector Lazy Load Test</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 150px;
+}
+
+#dateContainer{
+    display: none;
+}
+
+input[type="date"]{
+    padding: 10px;
+    font-size: 16px;
+}
+</style>
+
+<script>
+window.onload = function(){
+
+    // show loading text
+    document.getElementById("loading").style.display = "block";
+
+    // lazy load after 7 seconds
+    setTimeout(function(){
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("dateContainer").style.display = "block";
+
+    },7000);
+
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Date Selector Test</h2>
+
+<p id="loading">Loading date selector... Please wait 7 seconds</p>
+
+<div id="dateContainer">
+<label for="dateField">Select Date:</label>
+<br><br>
+
+<input type="date" id="dateField" title="Select Date">
+
+</div>
+
+</body>
+</html>
