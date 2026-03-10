@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Date Selector with Text Attribute</title>
+<meta charset="UTF-8">
+<title>Wait for Text Attribute Test</title>
 
-<style>
-body{
-    font-family: Arial;
-    text-align:center;
-    margin-top:150px;
+<script>
+function addTextAttribute() {
+    setTimeout(function() {
+        document.getElementById("dateSelector")
+            .setAttribute("text", "Date Loaded Successfully");
+    }, 5000); // attribute added after 5 seconds
 }
 
-input{
-    padding:10px;
-    font-size:16px;
-}
-</style>
+window.onload = addTextAttribute;
+</script>
 
 </head>
 
 <body>
 
-<h2>Date Selector</h2>
+<h2>Date Selector Test Page</h2>
+
+<input type="date" id="dateSelector">
 
 <br><br>
 
-<input 
-type="text"
-id="dateInput"
-name="dateInput"
-data-text="test data"
-placeholder="Select Date"
-title="Select Date"
->
+<button onclick="alert(document.getElementById('dateSelector').getAttribute('text'))">
+Check Text Attribute
+</button>
 
 </body>
 </html>
