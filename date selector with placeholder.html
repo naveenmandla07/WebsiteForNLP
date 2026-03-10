@@ -7,34 +7,54 @@
 <style>
 body{
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 150px;
+    text-align:center;
+    margin-top:150px;
 }
 
 #dateContainer{
-    display: none;
+    display:none;
+}
+
+.date-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+.placeholder-text{
+    position:absolute;
+    left:10px;
+    top:8px;
+    color:gray;
+    pointer-events:none;
 }
 
 input[type="date"]{
-    padding: 10px;
-    font-size: 16px;
+    padding:10px;
+    font-size:16px;
 }
 </style>
 
 <script>
 window.onload = function(){
 
-    // show loading text
-    document.getElementById("loading").style.display = "block";
-
-    // lazy load after 7 seconds
+    // Lazy load after 7 seconds
     setTimeout(function(){
 
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("dateContainer").style.display = "block";
+        document.getElementById("loading").style.display="none";
+        document.getElementById("dateContainer").style.display="block";
 
     },7000);
+}
 
+function hidePlaceholder(){
+    document.getElementById("placeholder").style.display="none";
+}
+
+function showPlaceholder(){
+    var dateValue = document.getElementById("dateField").value;
+    if(dateValue==""){
+        document.getElementById("placeholder").style.display="block";
+    }
 }
 </script>
 
@@ -47,10 +67,14 @@ window.onload = function(){
 <p id="loading">Loading date selector... Please wait 7 seconds</p>
 
 <div id="dateContainer">
-<label for="dateField">Select Date:</label>
+
+<label>Select Date:</label>
 <br><br>
 
-<input type="date" id="dateField" title="Select Date">
+<div class="date-wrapper">
+<span id="placeholder" class="placeholder-text">Select Date</span>
+<input type="date" id="dateField" onclick="hidePlaceholder()" onchange="hidePlaceholder()" onblur="showPlaceholder()">
+</div>
 
 </div>
 
