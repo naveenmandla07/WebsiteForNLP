@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Date Selector</title>
+<title>Date Selector with Text Attribute</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    margin-top:150px;
+}
+
+input{
+    padding:10px;
+    font-size:16px;
+}
+</style>
+
 </head>
 
 <body>
 
-<label>Select Date:</label>
+<h2>Date Selector</h2>
+
 <br><br>
-<br><br>
-<input type="date" id="dateInput" label= "dateselector" title="Select Date" placeholder="Select Date">
+<input 
+type="text"
+id="dateInput"
+name="dateInput"
+placeholder="Select Date"
+title="Select Date"
+onfocus="(this.type='date')"
+onblur="if(!this.value)this.type='text'"
+>
 
 </body>
 </html>
