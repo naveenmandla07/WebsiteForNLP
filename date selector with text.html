@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login Test Page</title>
+
+<style>
+body{
+font-family: Arial;
+margin:40px;
+}
+
+.container{
+width:300px;
+padding:20px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.hidden{
+display:none;
+}
+
+label{
+font-weight:bold;
+}
+</style>
+
+<script>
+function showFields(){
+setTimeout(function(){
+
+document.getElementById("emailField").style.display="block";
+document.getElementById("passwordField").style.display="block";
+document.getElementById("dateField").style.display="block";
+
+document.getElementById("email").setAttribute("text","email textbox");
+document.getElementById("password").setAttribute("text","password textbox");
+document.getElementById("date").setAttribute("text","date selector");
+
+},4000);
+}
+
+window.onload=showFields;
+</script>
+
+</head>
+
+<body>
+
+<h2>Login Page - NLP Wait Testing</h2>
+
+<div class="container">
+
+<div id="emailField" class="hidden">
+
+<label for="email">Email Address</label><br><br>
+
+<input 
+type="email"
+id="email"
+name="email"
+title="test data"
+placeholder="Enter your email"
+text="email field"
+>
+
+</div>
+
+<br>
+
+<div id="passwordField" class="hidden">
+
+<label for="password">Password</label><br><br>
+
+<input
+type="password"
+id="password"
+name="password"
+title="password data"
+placeholder="Enter your password"
+text="password field"
+>
+
+</div>
+
+<br>
+
+<div id="dateField" class="hidden">
+
+<label for="date">Select Date</label><br><br>
+
+<input
+type="date"
+id="date"
+name="date"
+title="date data"
+placeholder="Select a date"
+text="date selector"
+>
+
+</div>
+
+<br><br>
+
+<button>Login</button>
+
+</div>
+
+</body>
+</html>
