@@ -2,32 +2,42 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Wait for Text Attribute Test</title>
-
+<title>Date Selector NLP Test</title>
+<style>
+body { font-family: Arial; margin: 40px; }
+.container { width: 300px; padding: 20px; border:1px solid #ccc; border-radius:8px; }
+.hidden { display:none; }
+label { font-weight: bold; }
+</style>
 <script>
-function addTextAttribute() {
+function showDateSelector() {
     setTimeout(function() {
-        document.getElementById("dateSelector")
-            .setAttribute("text", "Date Loaded Successfully");
-    }, 5000); // attribute added after 5 seconds
+        const dateInput = document.getElementById("date");
+        dateInput.style.display = "block";
+        dateInput.setAttribute("data-text", "date selector"); // use data-text for NLP
+    }, 3000);
 }
-
-window.onload = addTextAttribute;
+window.onload = showDateSelector;
 </script>
-
 </head>
-
 <body>
 
-<h2>Date Selector Test Page</h2>
+<h2>Date Selector NLP Test</h2>
+<div class="container">
 
-<input type="date" id="dateSelector">
+<div id="dateField">
+    <label for="date" data-label="date selector">Select Date</label><br><br>
+    <input
+        type="date"
+        id="date"
+        name="date"
+        placeholder="Select a date"
+        title="date data"
+        data-text="date selector"
+        style="display:none;"
+    >
+</div>
 
-<br><br>
-
-<button onclick="alert(document.getElementById('dateSelector').getAttribute('text'))">
-Check Text Attribute
-</button>
-
+</div>
 </body>
 </html>

@@ -2,103 +2,42 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login Test Page</title>
-
+<title>Date Selector NLP Test</title>
 <style>
-body{
-  font-family: Arial;
-  margin:40px;
-}
-
-.container{
-  width:300px;
-  padding:20px;
-  border:1px solid #ccc;
-  border-radius:8px;
-}
-
-.hidden{
-  display:none;
-}
-
-label{
-  font-weight:bold;
-}
+body { font-family: Arial; margin: 40px; }
+.container { width: 300px; padding: 20px; border:1px solid #ccc; border-radius:8px; }
+.hidden { display:none; }
+label { font-weight: bold; }
 </style>
-
 <script>
-function showFields(){
-  setTimeout(function(){
-    document.getElementById("emailField").style.display="block";
-    document.getElementById("passwordField").style.display="block";
-    document.getElementById("dateField").style.display="block";
-
-    document.getElementById("email").setAttribute("text","email textbox");
-    document.getElementById("password").setAttribute("text","password textbox");
-    document.getElementById("date").setAttribute("text","date selector");
-
-  },4000);
+function showDateSelector() {
+    setTimeout(function() {
+        const dateInput = document.getElementById("date");
+        dateInput.style.display = "block";
+        dateInput.setAttribute("data-text", "date selector"); // use data-text for NLP
+    }, 3000);
 }
-
-window.onload=showFields;
+window.onload = showDateSelector;
 </script>
-
 </head>
-
 <body>
 
-<h2>Login Page - NLP Wait Testing</h2>
-
+<h2>Date Selector NLP Test</h2>
 <div class="container">
 
-<div id="emailField" class="hidden">
-  <label for="email">Email Address</label><br><br>
-  <input 
-    type="email"
-    id="email"
-    name="email"
-    title="test data"
-    placeholder="Enter your email"
-    text="email field"
-    label="Email Address"
-  >
+<div id="dateField">
+    <label for="date" data-label="date selector">Select Date</label><br><br>
+    <input
+        type="date"
+        id="date"
+        name="date"
+        placeholder="Select a date"
+        title="date data"
+        data-text="date selector"
+        style="display:none;"
+    >
 </div>
 
-<br>
-
-<div id="passwordField" class="hidden">
-  <label for="password">Password</label><br><br>
-  <input
-    type="password"
-    id="password"
-    name="password"
-    title="password data"
-    placeholder="Enter your password"
-    text="password field"
-    label="Password"
-  >
 </div>
-
-<br>
-
-<div id="dateField" class="hidden">
-  <label for="date">Select Date</label><br><br>
-  <input
-    type="date"
-    id="date"
-    name="date"
-    title="date data"
-    placeholder="Select a date"
-    text="date selector"
-    label="test data"
-  >
-</div>
-
-<br><br>
-
-<button>Login</button>
-
-</div>
-
 </body>
 </html>
